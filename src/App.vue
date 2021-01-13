@@ -1,18 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <Header></Header>
+      <Page :page="pages[0]" :toHTML="toHTML"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Header from './components/Header'
+import Page from './components/Page'
+import _ from 'showdown'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Header,
+    Page
+  },
+  data(){
+    return {
+      pages: []
+    }
+  },
+  methods : {
+      toHTML: function(text){
+          const c = new _.Converter();
+          return c.makeHtml(text);
+      }
+  },
+  mounted : function() {
+  fetch('http://localhost:5000/wiki', {
+    method: 'get',
+  })
+    .then((response) => {
+      return response.json()
+    })
+    .then((jsonData) => {
+      this.pages = jsonData;
+    })
+}
+
 }
 </script>
 
@@ -21,8 +46,7 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

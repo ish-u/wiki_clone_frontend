@@ -1,13 +1,15 @@
 <template>
 <div>
   <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="#">wiki</b-navbar-brand>
+    <b-navbar-brand><router-link tag="span" :style="{ cursor: 'pointer'}" to="/">wiki</router-link></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>
-        <b-nav-item href="#"></b-nav-item>
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item>
+          <router-link tag="span" :style="{ cursor: 'pointer'}" to="/create"><b-icon icon="pencil-square"></b-icon>Create</router-link>
+        </b-nav-item>
         <b-nav-item href="#" disabled></b-nav-item>
       </b-navbar-nav>
 

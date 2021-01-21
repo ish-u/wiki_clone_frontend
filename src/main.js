@@ -7,7 +7,6 @@ import router from './router'
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
-
 Vue.config.productionTip = false
 
 // capitalize filter

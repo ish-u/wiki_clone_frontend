@@ -43,7 +43,6 @@ export default {
     },
   },
   created: function () {
-    console.log(process.env.VUE_APP_WIKI_API)
     fetch(process.env.VUE_APP_WIKI_API , {
       method: "get",
     })

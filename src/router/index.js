@@ -3,8 +3,7 @@ import VueRouter from 'vue-router'
 import Page from '../views/Page.vue'
 import Home from '../views/Home.vue'
 import Create from '../views/Create.vue'
-
-
+import Search from '../views/Search.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -23,6 +22,12 @@ const routes = [
     path: '/create',
     name: 'create',
     component: Create
+  },
+  {
+    path: '/wiki/search/:query',
+    name: 'search',
+    component: Search,
+    props: true
   }
  
 ]

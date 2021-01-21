@@ -20,11 +20,11 @@
                         id="textarea"
                         v-model="text"
                         placeholder="Enter MARKUP"
-                        rows="10"
+                        rows="15"
                         ></b-form-textarea>
                     </div>
                     <br>
-                    <b-button type="submit" variant="primary">Submit</b-button>
+                    <b-button type="submit" variant="outline-dark"><b-icon icon="file-earmark"></b-icon> Create</b-button>
                 </b-form>
             </div>
         </template>
@@ -49,7 +49,7 @@ export default {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ content: this.text ,title: this.title })
             };
-            fetch('http://localhost:5000/wiki/', requestOptions)
+            fetch(process.env.VUE_APP_WIKI_API, requestOptions)
                 .then(response => response.json())
                 .then(data => {
                     this.msg = data["msg"] == 'Page Saved' ? 'Page Added' : 'Page Not Added - Error'

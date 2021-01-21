@@ -1,4 +1,4 @@
-# wiki
+# wiki - Wikipedia Clone
 
 ## Project setup
 ```
